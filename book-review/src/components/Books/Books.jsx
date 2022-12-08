@@ -5,7 +5,7 @@ const Books = () => {
 
     useEffect(()=>{
         // backend url here
-        fetch('')
+        fetch('/books')
         .then((res)=> res.json())
         .then((data)=> setBooks(data))
     }, [])

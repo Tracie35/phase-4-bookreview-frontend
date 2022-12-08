@@ -2,7 +2,7 @@ import React from 'react'
 
 const Logout = ({user, setUser}) => {
      
-    // LOGOUT 
+     
 
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {

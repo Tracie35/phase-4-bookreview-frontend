@@ -37,6 +37,10 @@ const Navbar = () => {
             <li className='nav-item'>
               <Link to = "login" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Log in</Link>
             </li>
+            <li className='nav-item'>
+              <Link to = "login" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Log out</Link>
+            </li>
+
 
 
             

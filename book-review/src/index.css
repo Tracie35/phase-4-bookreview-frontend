@@ -120,3 +120,6 @@ input{
   text-transform: uppercase;
   padding: 18px 0 24px 0;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,6 +1,6 @@
 .header-content{
     min-height: 75vh;
-    background: linear-gradient(rgba(141, 39, 174, 0.3), rgba(141, 39, 174, 0.5)), url("../../images/library-img.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(10, 10, 10, 0.3), rgba(22, 22, 22, 0.5)), url("../../images/library-img.jpg") center/cover no-repeat;
     flex-direction: column;
 }
 .header-title{
@@ -8,7 +8,7 @@
 }
 .header-text{
     margin-top: -1.8rem;
-    margin-bottom: 2.8rem;
+    margin-bottom: 1.8rem;
     opacity: 0.8;
     max-width: 770px;
 }

@@ -13,7 +13,7 @@ import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Logout from './pages/Logout/Logout';
 import Books from './components/Books/Books';
-
+import Footer from './components/Footer/Footer';
 
 
 

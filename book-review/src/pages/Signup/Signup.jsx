@@ -133,7 +133,7 @@ fetch("/signup", {
 
         <div className='bg-white-800 flex flex-col justify-center'>
             <form className='max-w-[400px] w-full mx-auto rounded-lg bg-gray-900 p-8 px-8' onSubmit={handlesubmit}>
-                <h2 className='text-4xl light:text-white font-bold text-center'>LOG IN</h2>
+                <h2 className='text-4xl light:text-white font-bold text-center'>SIGN UP</h2>
                 <div className='flex flex-col text-gray-400 py-2'>
                     <input className='rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none' type="text" 
                     value={firstname}  onChange={(e)=> setFirstname(e.target.value)} placeholder="First name" autoComplete='off'

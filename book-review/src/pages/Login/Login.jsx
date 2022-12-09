@@ -28,6 +28,7 @@ function Login() {
            } else {
                r.json().then((err) => setErrors(err.errors))
            }
+           navigate('/')
         })}
 
   return (

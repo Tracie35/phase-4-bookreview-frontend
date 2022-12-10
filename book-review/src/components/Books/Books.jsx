@@ -1,14 +1,27 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
+import Login from '../../pages/Login/Login'
+import Modal from '../Modal/Modal'
 
-const Books = () => {
+const Books = ({user, setUser}) => {
     const [books, setBooks] = useState([])
-
+    
     useEffect(()=>{
         fetch('/books')
-        .then((res)=>{return res.json()})
-        .then((data)=> setBooks(data))
+        .then((res)=> res.json())
+        .then((data)=> {
+            console.log(user)
+            console.log("yeyeah")
+            console.log(data)
+            setBooks(data)
+        
+        })
     }, [])
+        if (!user) {
+            return <Login user={user} setUser={setUser}/>
 
+            
+        }
     return(
         <div class="grid gap-10 px-5 mt-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-">
             {books.map((book)=>{
@@ -23,7 +36,7 @@ const Books = () => {
                         {book.description}
                         </p>
                         <p className='text-purple-500'>KSH {book.price}</p>
-                        <button className='w-full py-4 px-6 font-medium text-[18px] review-btn'>Add Review</button>
+                        <Link to="/reviews" state={{ book_id: book.id }}  style={{ backgroundColor: 'black' }} className='w-full py-4 px-6 font-medium text-[18px] review-btn'>Add Review</Link>
                         </div>
                     </div>
                 )

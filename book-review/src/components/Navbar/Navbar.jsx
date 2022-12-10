@@ -4,9 +4,21 @@ import "./Navbar.css";
 import logoImg from "../../images/logo.png";
 import {HiOutlineMenuAlt3} from "react-icons/hi";
 
-const Navbar = () => {
+const Navbar = ({user,setUser}) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const handleNavbar = () => setToggleMenu(!toggleMenu);
+
+  const handleLogout = async (e) => {
+
+    const response = await fetch('/logout', {
+      method: 'DELETE',
+    })
+
+    if (response.ok) {
+      console.log("worked")
+      setUser(null)
+    }
+  }
 
   return (
     <nav className='navbar' id = "navbar">
@@ -23,31 +35,44 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className={toggleMenu ? "navbar-collapse show-navbar-collapse" : "navbar-collapse"}>
-          <ul className = "navbar-nav">
-            <li className='nav-item'>
-              <Link to = "book" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Home</Link>
-            </li>
-            <li className='nav-item'>
-              <Link to = "about" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>About</Link>
-            </li>
-            <li className='nav-item'>
-              <Link to = "books" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Books</Link>
-            </li>
-            <li className='nav-item'>
-              <Link to = "login" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Log in</Link>
-            </li>
-            <li className='nav-item'>
-              <Link to = "login" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Log out</Link>
-            </li>
-
-
-
-            
-
-          
-          </ul>
-        </div>
+        {/* <div className={toggleMenu ? "navbar-collapse show-navbar-collapse" : "navbar-collapse"}> */}
+            {
+              user ? (
+                <ul className = "navbar-nav">
+                  <li className='nav-item'>
+                    <Link to = "/" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Home</Link>
+                  </li>
+                  <li className='nav-item'>
+                    <Link to = "about" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>About</Link>
+                  </li>
+                  <li className='nav-item'>
+                    <Link to = "books" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Books</Link>
+                  </li>
+                  <li className='nav-item'>
+                    <a onClick={(e) => handleLogout(e)} className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Log out</a>
+                  </li>
+                </ul>
+              ) : (
+                <ul className = "navbar-nav">
+                  <li className='nav-item'>
+                    <Link to = "/" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Home</Link>
+                  </li>
+                  <li className='nav-item'>
+                    <Link to = "about" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>About</Link>
+                  </li>
+                  <li className='nav-item'>
+                    <Link to = "books" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Books</Link>
+                  </li>
+                  <li className='nav-item'>
+                    <Link to = "login" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Log in</Link>
+                  </li>
+                  <li className='nav-item'>
+                    <Link to = "signup" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Sign up</Link>
+                  </li>
+                </ul>
+              )
+            }
+        {/* </div> */}
       </div>
     </nav>
   )

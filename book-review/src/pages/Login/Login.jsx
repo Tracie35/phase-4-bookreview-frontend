@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router';
 
 
 
-function Login() {
+function Login({user,setUser}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors]= useState([]) 
     const navigate =useNavigate()
 
+  
 
     function handlesubmit(e){
         
@@ -24,12 +25,12 @@ function Login() {
            body: JSON.stringify({username,password}),
         }).then((r)=>{
            if (r.ok) {
-               r.json().then((user) => setUsername(user))
+               r.json().then((data) => setUser(data)) 
+               navigate('/books') 
            } else {
                r.json().then((err) => setErrors(err.errors))
            }
-           navigate('/')
-        })}
+        })} 
 
   return (
     

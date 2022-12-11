@@ -23,16 +23,16 @@ const Books = ({user, setUser}) => {
             
         }
     return(
-        <div class="grid gap-10 px-5 mt-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-">
+        <div className="grid gap-10 px-5 mt-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-">
             {books.map((book)=>{
                 return(
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg ">
-                        <img class="w-full" src={book.image} alt="Book_Image" />
-                        <div class="px-6 py-4">
-                        <div class="font-bold uppercase text-2xl mb-2">{book.title}</div>
-                        <div class="font-semibold text-xl mb-2">{book.author}</div>
-                        <div class="font-normal text-xl mb-2">{book.genre}</div>
-                            <p class="text-gray-700 text-base">
+                    <div className="max-w-sm rounded overflow-hidden shadow-lg " key={book.id}>
+                        <img className="w-full" src={book.image} alt="Book_Image" />
+                        <div className="px-6 py-4">
+                        <div className="font-bold uppercase text-2xl mb-2">{book.title}</div>
+                        <div className="font-semibold text-xl mb-2">{book.author}</div>
+                        <div className="font-normal text-xl mb-2">{book.genre}</div>
+                            <p className="text-gray-700 text-base">
                         {book.description}
                         </p>
                         <p className='text-purple-500'>KSH {book.price}</p>

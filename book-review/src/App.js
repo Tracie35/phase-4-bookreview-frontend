@@ -14,6 +14,7 @@ import Logout from './pages/Logout/Logout';
 import Books from './components/Books/Books';
 import Footer from './components/Footer/Footer';
 import Review from './components/Reviews/Review';
+import Navbar from './components/Navbar/Navbar';
 
 
 
@@ -31,8 +32,10 @@ import Review from './components/Reviews/Review';
 
     return (
         <BrowserRouter>
+            <Navbar user={user} setUser={setUser} />
+
       <Routes>
-        <Route path = "/" element = {<Home user={user} setUser={setUser} />}>
+        <Route path = "/" element = {<Home user={user} setUser={setUser} />}/>
           <Route path = "about" element = {<About />} />
           <Route path = "books" element = {<Books user={user} setUser={setUser}/>} />
           {/* <Route path = "books" element = {<BookList />} /> */}
@@ -42,7 +45,7 @@ import Review from './components/Reviews/Review';
           <Route path='/logout' element={<Logout user={user} setUser={setUser}/>}/>
           <Route path = "/reviews" element = {<Review user={user} setUser={setUser} />} />
 
-        </Route>
+      
       </Routes>
     </BrowserRouter>
     )

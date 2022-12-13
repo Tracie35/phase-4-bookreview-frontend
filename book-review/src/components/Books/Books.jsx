@@ -42,7 +42,7 @@ const Books = ({user, setUser}) => {
                 )
             })}
         </div>
-    
+    )
 }
 
 export default Books
